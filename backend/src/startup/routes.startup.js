@@ -4,15 +4,19 @@ const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const { logger } = require("../helpers/logger.helpers");
-//routers
+const { UserRouter } = require("../routes/user.router");
+
 
 module.exports = (app) => {
-    app.use(express.json({ limit: 10 }));
+    app.use(express.json({ limit: 999999999999 }));
     app.use(express.urlencoded({ extended: true }));
     app.use(cors());
     app.use(helmet());
     app.use(cookieParser());
     app.use(morgan('tiny'));
+    
+    //routers
+    app.use('/api/v1/users', UserRouter)
 
     app.get("/", (req, res) =>
         res.send({

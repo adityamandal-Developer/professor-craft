@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const { logger } = require("../helpers/logger.helpers");
 
 const { DB_URL } = process.env;
